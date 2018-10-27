@@ -39,10 +39,6 @@
 									"});",
 									"pm.test(\"Body matches permissionList\", function () {",
 									"    pm.expect(pm.response.text()).to.include(\"permissionList\");",
-									"});",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"    pm.expect(pm.response.responseTime).to.be.below(200);",
 									"});"
 								],
 								"type": "text/javascript"
