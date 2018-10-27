@@ -39,7 +39,7 @@ mv order.war ROOT.war
 
 # 启动Tomcat
 cd $TOMCAT_APP_PATH/bin/
-./startup.sh &
+source ./startup.sh
 
 cd $PROJ_PATH/order
 
