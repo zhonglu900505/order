@@ -41,9 +41,9 @@ mv order.war ROOT.war
 cd $TOMCAT_APP_PATH/bin/
 ./startup.sh
 
-# cd $PROJ_PATH/order
+cd $PROJ_PATH/order
 
-# newman run ./test.postman_collection.json --environment ./test.postman_environment.json -r junit,html --reporter-html-export ./test.html --reporter-junit-export ./test.xml
+newman run ./test.postman_collection.json --environment ./test.postman_environment.json -r junit,html --reporter-html-export ./test.html --reporter-junit-export ./test.xml
 
 
 
