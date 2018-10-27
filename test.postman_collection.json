@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "40927f7a-b3da-4ca2-b815-de7c2c4bcd9e",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "logincenter",
+			"item": [
+				{
+					"name": "test",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{host}}",
+							"host": [
+								"{{host}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "登录",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7b135bbc-5eed-467f-8dc6-88a056a4ea8a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches permissionList\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"permissionList\");",
+									"});",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"    pm.expect(pm.response.responseTime).to.be.below(200);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "{{name}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								},
+								{
+									"key": "action",
+									"value": "40667",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{host}}/reqxml",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"reqxml"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "managesystem",
+			"item": [
+				{
+					"name": "\b系统配置",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9b366de0-fb2d-4fda-991a-fa406d38acb1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"pm.test(\"Body matches systemLogo\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"systemLogo\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "{{host}}/tzt-managesystem/systemSetInfo/findForList",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"tzt-managesystem",
+								"systemSetInfo",
+								"findForList"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
